@@ -35,6 +35,28 @@ Edit the configuration files or environment variables with your tokens and ident
 - For VK bot, update `VK_TOKEN` in the VK configuration file.
 - For Telegram bot, set `TELEGRAM_TOKEN` in the Telegram configuration file.
 - Set `PROJECT_ID` for Dialogflow integration.
+- Set `QUESTION_FILE` for path to file with questions. By default using `questions.json`.
+
+## Training bot
+
+1. Question File Format
+
+Your question and answer file should be in the following format:
+
+```json
+{
+    "display_name": {
+        "questions": ["questions1", "questions2"],
+        "answer": "ответ"
+    }
+}
+```
+
+## Run
+
+```bash
+python api.py
+```
 
 ## Usage
 1. Run the VK support bot:

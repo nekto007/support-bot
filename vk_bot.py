@@ -11,10 +11,10 @@ def df_handle(event, vk_api, project_id):
     if user_message:
         language_code = 'ru'
         response = detect_intent_texts(
-            project_id,
-            event.user_id,
-            [user_message],
-            language_code
+            project_id=project_id,
+            session_id=event.user_id,
+            text=user_message,
+            language_code=language_code
         )
 
         if response.query_result.intent.is_fallback:

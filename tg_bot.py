@@ -2,9 +2,9 @@ import os
 
 import telegram
 from environs import Env
-
 from telegram import Update
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler, Updater
+
 from api import detect_intent_texts
 
 
@@ -13,19 +13,13 @@ def start(update: Update, context: CallbackContext) -> None:
     update.message.reply_text(text=notification)
 
 
-def echo(update: Update, context: CallbackContext) -> None:
-    """Echo the user message."""
-    update.message.reply_text(update.message.text)
-
-
 def dialogflow_handle(update: Update, context: CallbackContext) -> None:
-    texts = [update.message.text]
+    text = update.message.text
     session_id = [update.message.chat_id]
-
     response = detect_intent_texts(
         project_id=os.environ['PROJECT_ID'],
         session_id=session_id,
-        texts=texts,
+        text=text,
         language_code='ru'
     )
     update.message.reply_text(response.query_result.fulfillment_text)
