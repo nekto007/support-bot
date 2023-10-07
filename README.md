@@ -53,6 +53,8 @@ Your question and answer file should be in the following format:
 ```
 
 ## Run
+Script using json file include display_name, questions and answer.
+To train with Google cloud Dialogflow the bot, you need to execute the command:
 
 ```bash
 python api.py
